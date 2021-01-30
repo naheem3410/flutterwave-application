@@ -200,6 +200,9 @@ function evaluateForArray(res,rule,data){
 	if(index > (data.length -1) ){
 		res.status(400).json({message:"field "+index+" is missing from data.",status:"error",data:null});
 	}
+	else if(index < 0){
+		res.status(400).json({message:"field "+index+" is missing from data.",status:"error",data:null});
+	}
 	else{
 		let fieldValue = data[index];
 		checkConditionToProceed(res,rule,fieldValue)
@@ -218,6 +221,9 @@ function evaluateForString(res,rule,data){
 	}
 	else{
 		if(index > (data.length -1) ){
+		res.status(400).json({message:"field "+index+" is missing from data.",status:"error",data:null});
+	}
+		else if(index < 0){
 		res.status(400).json({message:"field "+index+" is missing from data.",status:"error",data:null});
 	}
 	else{
